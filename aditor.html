@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Aditor</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body class="flex items-center justify-center h-screen bg-indigo-100">
+
+    
+    <div class="bg-white shadow-2xl rounded-lg p-4 sm:p-6 w-full max-w-2xl mx-auto">
+        <h1 class="text-2xl sm:text-3xl mb-4 text-center text-black-700 font-[Open_Sans]">Text Editor App</h1>
+    
+        <!-- Toolbar in One Line (Fully Responsive) -->
+        <div class="flex flex-wrap sm:flex-nowrap space-x-2 items-center bg-gray-100 h-auto sm:h-20 p-4 sm:p-6 rounded-lg">
+            
+            <div class="flex space-x-2 w-full sm:w-auto">
+                <!-- Dropdown Button -->
+                <div class="relative w-full sm:w-auto">
+                    <button id="dropdownButton" class="w-full sm:w-45 text-gray-700 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-2 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-xs sm:text-sm px-4 py-2 text-center flex justify-between items-center">
+                        Courier New
+                        <svg class="w-3 h-3 sm:w-4 sm:h-4 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="m1 1 4 4 4-4"/>
+                        </svg>
+                    </button>
+    
+                    <!-- Dropdown Menu -->
+                    <div id="dropdownMenu" class="hidden absolute w-40 bg-gray-100 border border-gray-300 shadow-md rounded-lg mt-2">
+                        <ul class="py-2 text-xs sm:text-sm text-gray-700">
+                            <li><a href="#" class="block px-3 py-2 hover:bg-gray-200" onclick="changeFont('Arial')">Arial</a></li>
+                            <li><a href="#" class="block px-3 py-2 hover:bg-gray-200" onclick="changeFont('Georgia')">Georgia</a></li>
+                            <li><a href="#" class="block px-3 py-2 hover:bg-gray-200" onclick="changeFont('Times New Roman')">Times New Roman</a></li>
+                            <li><a href="#" class="block px-3 py-2 hover:bg-gray-200" onclick="changeFont('Verdana')">Verdana</a></li>
+                            <li><a href="#" class="block px-3 py-2 hover:bg-gray-200" onclick="changeFont('font-mono')">font-mono</a></li>
+                        </ul>
+                    </div>
+                </div>
+    
+                <!-- Normal Button -->
+                <button onclick="setNormal()" class="px-2 py-2 text-xs sm:text-sm font-medium text-gray-900 border border-gray-900 rounded-lg hover:bg-gray-900 hover:text-white">Normal</button>
+            </div>
+    
+            <!-- Formatting Buttons -->
+            <div class="flex flex-wrap sm:flex-nowrap space-x-1 sm:space-x-2.5 w-full sm:w-auto mt-2 sm:mt-0">
+                <button onclick="setBold()" class="px-2 py-2 text-xs sm:text-sm font-medium text-gray-900 border border-gray-900 rounded-lg hover:bg-gray-900 hover:text-white">B</button>
+                <button onclick="setItalic()" class="px-2 py-2 text-xs sm:text-sm font-medium text-gray-900 border border-gray-900 rounded-lg hover:bg-gray-900 hover:text-white">I</button>
+                <button onclick="setUnderline()" class="px-2 py-2 text-xs sm:text-sm font-medium text-gray-900 border border-gray-900 rounded-lg hover:bg-gray-900 hover:text-white">U</button>
+                
+                <!-- Color Picker -->
+                <input type="color" id="colorPicker" class="w-8 h-8 sm:w-10 sm:h-10 border-0 rounded-md cursor-pointer mt-2 sm:mt-0" onchange="changeTextColor()">
+                
+                <!-- Font Size Input (Increased width) -->
+                <input type="number" min="0" max="1000" placeholder="Size" id="fontSizeInput" class="w-24 sm:w-36 p-1 sm:p-2 border border-gray-300 rounded-md text-xs sm:text-sm mt-2 sm:mt-0" onchange="changeFontSize()">
+            </div>
+        </div>
+    
+        <!-- Textarea -->
+        <textarea id="textArea" rows="10" class="w-full p-3 sm:p-4 border border-gray-300 rounded-md mt-4 sm:mt-6 text-xs sm:text-sm underline" placeholder="Edit Your Text"></textarea>
+    </div>
+    
+    
+    
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
